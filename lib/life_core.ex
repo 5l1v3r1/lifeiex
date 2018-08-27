@@ -35,7 +35,7 @@ defmodule LifeCore do
     size = intersection_size(x, y, state)
 
     cond do
-      size == 2 and {x, y} in state  -> true
+      size == 2 and {x, y} in state -> true
       size <= 2 -> false
       size == 3 -> true
       size > 3 -> false
@@ -45,7 +45,7 @@ defmodule LifeCore do
   @spec next_iter(MapSet.t(Tuple.t(Integer))) :: MapSet.t(Tuple.t(Integer))
   def next_iter(state) do
     envelope = compute_enveloppe(state)
-    IO.inspect envelope
+    IO.inspect(envelope)
     for {x, y} <- envelope, check_rules(x, y, state), into: MapSet.new(), do: {x, y}
   end
 end
